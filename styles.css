@@ -1,0 +1,132 @@
+/* Base settings */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Layout */
+header {
+  background-color: #3aa6ff;
+  padding: 20px;
+  color: #d1d1d1;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.array-container {
+  width: 95%;
+  height: 300px; /* Adjust based on your preference */
+  background-color: #ddd;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
+.button-panel {
+  display: grid;
+  grid-gap: 10px; /* Space between grid items */
+  padding: 10px; /* Padding around the grid */
+  align-items: center; /* Center items vertically */
+  justify-items: stretch; /* Stretch items to fill the grid columns */
+}
+
+.sort-buttons button,
+.control-panel input,
+.control-panel label {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sort-buttons button:hover,
+.control-panel input[type="range"]:hover {
+  background-color: #e2e2e2;
+  border-color: #d1d1d1;
+}
+
+.control-panel {
+  display: grid;
+  grid-gap: 10px; /* Space between controls */
+  padding: 10px; /* Padding around the controls */
+  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns */
+  /* Add responsive adjustments as shown above for .button-panel */
+}
+
+.console-container {
+  width: 95%; /* Adjust based on your layout */
+  margin-top: 20px; /* Space from the previous section */
+  border-radius: 5px; /* Applies rounding to the whole container; will be overridden for children */
+  overflow: hidden; /* Ensures child elements don't exceed the rounded corners */
+}
+
+.console-container > h2 {
+  background-color: #444444; /* Or your preferred header background color */
+  color: #d1d1d1;
+  align-items: center;
+  margin: 0; /* Removes default margin */
+  padding: 10px; /* Adds some spacing inside the header */
+  border-top-left-radius: 5px; /* Rounded top left corner */
+  border-top-right-radius: 5px; /* Rounded top right corner */
+  /* Add other styles for your header here (font size, color, etc.) */
+}
+
+.console-output {
+  background-color: #1e1e1e; /* Dark background for visibility */
+  color: limegreen; /* Light text for visibility */
+  height: 200px;
+  overflow-y: auto; /* Makes it scrollable */
+  padding: 10px; /* Padding inside the console */
+  font-family: monospace; /* Gives it a console-like appearance */
+  white-space: pre-wrap; /* Ensures text wraps and respects whitespace */
+  margin: 0; /* Eliminate default margins */
+  border-bottom-left-radius: 5px; /* Rounded bottom left corner */
+  border-bottom-right-radius: 5px; /* Rounded bottom right corner */
+  /* Maintain other styles and potentially adjust padding and colors as desired */
+}
+
+/* Responsive design */
+/* Default small screen: 2 columns */
+.button-panel {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Medium screens: 4 columns for buttons and 2 columns for sliders */
+@media (min-width: 600px) {
+  .button-panel {
+    grid-template-columns: repeat(4, 1fr); /* 4 buttons in a row */
+  }
+  .control-panel {
+    grid-template-columns: repeat(2, 1fr); /* 2 sliders in a row */
+  }
+}
+
+/* Larger screens: Adjust as needed */
+@media (min-width: 900px) {
+  .button-panel {
+    /* Adjust the grid-template-columns value based on your design preference */
+    grid-template-columns: repeat(6, 1fr); /* Example: 6 columns */
+  }
+  /* Continue adjusting .control-panel as necessary */
+}
